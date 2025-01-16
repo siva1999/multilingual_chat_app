@@ -3,9 +3,24 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
 from mistralai import Mistral
+import mysql.connector
+from passlib.hash import bcrypt
 
 # Initialize FastAPI
 app = FastAPI()
+
+# Database connection
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password=os.getenv("DB_PASS"),
+    database="multi_chat_app"
+)
+
+# Models for authentication
+class User(BaseModel):
+    name: str
+    password: str
 
 # Configure CORS
 app.add_middleware(
@@ -51,3 +66,34 @@ async def chat(request: ChatRequest):
         return {"response": response}
     except HTTPException as e:
         raise e
+    
+# Login Endpoint
+@app.post("/login")
+def login(user: User):
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM users WHERE name = %s", (user.name,))
+    result = cursor.fetchone()
+
+    if not result:
+        raise HTTPException(status_code=400, detail="User not found")
+    
+    # Verify hashed password
+    if bcrypt.verify(user.password, result["password"]):
+        return {"message": f"Welcome, {user.name}!"}
+    else:
+        raise HTTPException(status_code=400, detail="Invalid credentials")
+
+# Register Endpoint
+@app.post("/register")
+def register(user: User):
+    cursor = db.cursor()
+    hashed_password = bcrypt.hash(user.password)  # Hash password securely
+    try:
+        cursor.execute(
+            "INSERT INTO users (name, password) VALUES (%s, %s)",
+            (user.name, hashed_password),
+        )
+        db.commit()
+        return {"message": "User registered successfully!"}
+    except mysql.connector.errors.IntegrityError:
+        raise HTTPException(status_code=400, detail="User already exists")
