@@ -18,6 +18,7 @@ Backend: Python with FastAPI, ensuring fast and efficient handling of user reque
 SDK Integration: Mistral AI’s public API, to integrate real-time translations and sentiment analysis into the application.
 
 ### Features
+- User Creation and login
 - Real-time Chat with Automatic Translation: Detects the user's language and translates messages in real-time to provide seamless communication between users speaking different languages.
 - Sentiment Analysis: Provides sentiment insights alongside each message to analyze the emotional tone of conversations.
 - Attractive UI for effective chatting.
@@ -43,10 +44,16 @@ SDK Integration: Mistral AI’s public API, to integrate real-time translations 
 
 ## Results
 
-![Screenshot 2025-01-16 022503](https://github.com/user-attachments/assets/9377ae70-d5ab-4c7e-9ed1-bcafdc9776e9)
+### Login and Registration :
 
-![Screenshot 2025-01-16 022509](https://github.com/user-attachments/assets/8bbdb34a-85a8-450e-810a-bdc44da56f47)  
+![Screenshot 2025-01-16 104158](https://github.com/user-attachments/assets/150cd127-de5a-4263-bff9-d3a020ca6c10)
+![Screenshot 2025-01-16 104206](https://github.com/user-attachments/assets/5b9e663b-abcb-4a69-9fb2-cb50825dc1be)
+![Screenshot 2025-01-16 104225](https://github.com/user-attachments/assets/4c6eaff2-fb35-4833-943d-7343e3ef478f)
 
-![Screenshot 2025-01-16 022918](https://github.com/user-attachments/assets/d23475ac-8626-46c7-b26a-b4fd18771c88)
+### Chat Interface : 
 
-![Screenshot 2025-01-16 023031](https://github.com/user-attachments/assets/f6571f80-c44f-43a1-a32e-03e281b9dbea)
+![Screenshot 2025-01-16 022503](https://github.com/user-attachments/assets/cb10752c-6fb2-4d18-aff9-3a189e556176)
+![Screenshot 2025-01-16 022509](https://github.com/user-attachments/assets/54843d74-ab85-4547-ad3a-285d5532aa4d)
+![Screenshot 2025-01-16 022927](https://github.com/user-attachments/assets/1242bd61-3897-4521-a6a8-dd30751401aa)
+![Screenshot 2025-01-16 022918](https://github.com/user-attachments/assets/41bf3115-bb53-4c6b-ae1b-853dc8fb3dd9)
+
