@@ -1,6 +1,4 @@
-# Project Name
-
-Multilingual Chat App Powered By Mistral AI
+# AI Based Multilingual Chat Application 
 
 ## Table of Contents
 
